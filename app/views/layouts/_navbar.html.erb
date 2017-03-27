@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src = "http://www.casula-h.schools.nsw.edu.au/cmsresources/images/school_crest_black_1456457928019_m.png" class = "img-style">
+      <a class="navbar-brand" href="/">CINSTA</a>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        </li>
+      </ul>
+     
+      
+      <%= form_tag(posts_path, method: 'get',id:
+      "search-form",class:"navbar-form navbar-left")do %>
+      <div class="form-group">
+          <%= text_field_tag :search, params[:search],placeholder:"search posts",class: "form-control"%>
+          <%= submit_tag "Search",class: "btn btn-default" %>      
+       </div>
+       <% end %>
+        
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+          <li class ="user-style"><%= current_user.email %></a></li>
+        <% else %>
+           <li class ="user-style">Enjoy!</li>
+        <% end %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Year Groups <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page7/page">Year_7</a></li>
+            <li><a href="/page8/page">Year_8</a></li>
+            <li><a href="/page9/page">Year_9</a></li>
+            <li><a href="/page10/page">Year_10</a></li>
+            <li><a href="/page11/page">Year_11</a></li>
+            <li><a href="/page12/page">Year_12</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">My School</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

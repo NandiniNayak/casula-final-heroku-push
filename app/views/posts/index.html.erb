@@ -1,0 +1,25 @@
+<div class = "row">
+    <% @posts.each do |post| %>
+      <div class = "col-md-4">
+        <div class="panel panel-default">
+         <div class="panel-heading">
+          <h2 class="panel-title"><%= link_to post.title, post%> <span class="badge
+          pull-right"><%= post.created_at.strftime('%d %b %Y') %></span> </h2>
+          </div>
+          <div class="panel-body">
+           <%= image_tag post.image, width: '100%' %>
+           <p><%= post.description %></p>
+           <p><%= link_to 'Comment', post, class: 'btn btn-primary' %></p>
+           <p>Posted by: <%= post.user.email %></p>
+          </div>
+         </div>
+         <%= link_to 'Show', post %></td>
+         <%= link_to 'Edit', edit_post_path(post) %></td>
+         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
